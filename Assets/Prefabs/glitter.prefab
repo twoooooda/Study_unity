@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3291609585142065547}
   - component: {fileID: 3291609585142065544}
   m_Layer: 0
-  m_Name: sparkle
+  m_Name: glitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1379,7 +1379,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 33924
+        atime0: 51272
         atime1: 65535
         atime2: 0
         atime3: 0
