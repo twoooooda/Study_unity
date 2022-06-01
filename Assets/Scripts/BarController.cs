@@ -21,13 +21,11 @@ public class BarController : MonoBehaviour
         //矢印キー左右でバーを移動
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //rb.AddForce(new Vector3(1, 0, 0) * Time.deltaTime);
             rb.velocity = Vector3.right * power * Time.deltaTime;
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            //rb.AddForce(new Vector3(-1, 0, 0) * power * Time.deltaTime);
             rb.velocity = Vector3.left * power * Time.deltaTime;
         }
 

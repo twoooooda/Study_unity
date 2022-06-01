@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981dc3267352a994c8ba3f1b9a8240c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 5000
+  power: 3000
 --- !u!65 &904190875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1343,7 +1343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904190873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.34, y: 0.17, z: -4.19}
+  m_LocalPosition: {x: 0.26, y: 0.17, z: -4.19}
   m_LocalScale: {x: 3.1585, y: 1, z: 0.28742456}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1797,7 +1797,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171533993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: -2.83}
+  m_LocalPosition: {x: 1.19, y: 0.2, z: -1.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  particle: {fileID: 3291609585142065545, guid: aec63cb546fe3534ebc4c5203fdcd289, type: 3}
+  particle: {fileID: 7943862450083833346, guid: c28333222572e82458ebb7e69ca4ed27, type: 3}
   breaksound: {fileID: 8300000, guid: 99f98c30747f72844a90ff6f4be339a5, type: 3}
 --- !u!4 &1201202894 stripped
 Transform:
