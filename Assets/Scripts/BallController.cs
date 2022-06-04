@@ -8,7 +8,7 @@ public class BallController : MonoBehaviour
     public float speed;
     public GameObject particle;
     public AudioClip breaksound;
-    public ScoreManager scoreManager;
+    public ScoreManager ScoreManager;
 
     void Start()
     {
@@ -27,20 +27,20 @@ public class BallController : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         //当たった相手のタグがblockかどうか判定
-        if (collision.gameObject.tag == "block")
+        if (collision.gameObject.tag == "Block")
         {
             //particleを発生させる
             Instantiate(particle, collision.transform.position, Quaternion.identity);
             //効果音を鳴らす
             AudioSource.PlayClipAtPoint(breaksound, collision.transform.position);
             //scoreを加算する
-            scoreManager.AddScore();
+            ScoreManager.AddScore();
         }
     }
 
-    //ゲーム開始時にBallをActiveにする関数
-    public void BallActivate()
+    //BallをActiveにしたりしなかったりする関数
+    public void BallActivate(bool state)
     {
-        this.gameObject.SetActive(true);
+        this.gameObject.SetActive(state);
     }
 }

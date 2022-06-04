@@ -5,52 +5,90 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int score;
     public int point;
-    public GameObject ball;
+    public int timeLeft;
+    private GameObject[] blocks;
+    private int blocknum;
+    private int score;
+    private bool flag;
+    public BallController BallController;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI CountDownText;
 
     void Start()
     {
-        //得点初期化
+        //ブロックの数を数える
+        blocknum = GameObject.FindGameObjectsWithTag("Block").Length;
+        //得点、表示初期化
         score = 0;
-
-        StartCoroutine(TimeManager());
+        scoreText.text = "score:0";
+        timeText.text = "time:" + timeLeft.ToString();
+        //コルーチン開始
+        StartCoroutine(TimeManager(timeLeft));
     }
 
     void Update()
     {
-        //現在のスコアをテキストで表示
-        scoreText.text = "Score:" + score;
+        if (blocknum > 0)
+        {
+            //現在のスコアをテキストで表示
+            scoreText.text = "Score:" + score;
+        }
     }
 
-    private IEnumerator TimeManager()
+    //時間管理のコルーチン
+    private IEnumerator TimeManager(int timeLeft)
     {
-        //最初に一瞬待つ
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
+        //開始前の３秒カウントダウン
+        for (int i = 3; i > 0; i--)
+        {
+            CountDownText.text = i.ToString();
+            yield return new WaitForSeconds(1.0f);
+        }
 
-        //1秒間3を表示する
-        CountDownText.text = "3";
-        yield return new WaitForSeconds(1.0f);
+        //ボール出現
+        BallController.BallActivate(true);
 
-        CountDownText.text = "2";
-        yield return new WaitForSeconds(1.0f);
-
-        CountDownText.text = "1";
-        yield return new WaitForSeconds(1.0f);
-
+        //スタートの文字を1秒出す
         CountDownText.text = "Start!";
-        ball.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
         CountDownText.text = "";
 
+        //ゲーム時間のカウントダウン開始
+        for (; timeLeft > 0; timeLeft--)
+        {
+            //ブロックが全部なくなるとカウントダウン終了
+            if (blocknum <= 0)
+            {
+                scoreText.text = "Score:" + score.ToString() + "+" + ((timeLeft + 1).ToString()) + "*100" + "=" + (score + (timeLeft + 1) * 100).ToString();
+                CountDownText.text = "Game clear";
+                BallController.BallActivate(false);
+                flag = false;
+                break;
+            }
+            timeText.text = "time:" + timeLeft.ToString();
+            yield return new WaitForSeconds(1.0f);
 
+        }
+
+        //ブロックを全消ししたときにコルーチンを抜ける
+        if (flag == false)
+        {
+            yield break;
+        }
+
+        timeText.text = "time:0";
+        CountDownText.text = "Stop!";
+        //制限時間切れたらボール消去
+        BallController.BallActivate(false);
     }
+
     //外部スクリプトからスコアを加算する用の関数
     public void AddScore()
     {
         score += point;
+        blocknum -= 1;
     }
 }
