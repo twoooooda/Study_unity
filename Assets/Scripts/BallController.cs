@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
     public float speed;
     public GameObject particle;
     public AudioClip breaksound;
+    public ScoreManager scoreManager;
 
     void Start()
     {
@@ -32,6 +33,14 @@ public class BallController : MonoBehaviour
             Instantiate(particle, collision.transform.position, Quaternion.identity);
             //効果音を鳴らす
             AudioSource.PlayClipAtPoint(breaksound, collision.transform.position);
+            //scoreを加算する
+            scoreManager.AddScore();
         }
+    }
+
+    //ゲーム開始時にBallをActiveにする関数
+    public void BallActivate()
+    {
+        this.gameObject.SetActive(true);
     }
 }
