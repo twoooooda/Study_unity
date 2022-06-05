@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     private GameObject[] blocks;
     private int blocknum;
     private int score;
-    private bool flag;
+    private bool flag = true;
     public BallController BallController;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeText;
@@ -62,8 +62,9 @@ public class ScoreManager : MonoBehaviour
             //ブロックが全部なくなるとカウントダウン終了
             if (blocknum <= 0)
             {
-                scoreText.text = "Score:" + score.ToString() + "+" + ((timeLeft + 1).ToString()) + "*100" + "=" + (score + (timeLeft + 1) * 100).ToString();
+                scoreText.text = "Score:" + score.ToString() + "+" + ((timeLeft).ToString()) + "*50" + "=" + (score + (timeLeft + 1) * 50).ToString();
                 CountDownText.text = "Game clear";
+                timeText.text = "time:" + timeLeft.ToString();
                 BallController.BallActivate(false);
                 flag = false;
                 break;
@@ -73,14 +74,13 @@ public class ScoreManager : MonoBehaviour
 
         }
 
-        //ブロックを全消ししたときにコルーチンを抜ける
-        if (flag == false)
+        //ブロックが残っている状態で時間切れになったとき
+        if (flag)
         {
-            yield break;
+            timeText.text = "time:0";
+            CountDownText.text = "Stop!";
         }
 
-        timeText.text = "time:0";
-        CountDownText.text = "Stop!";
         //制限時間切れたらボール消去
         BallController.BallActivate(false);
     }
