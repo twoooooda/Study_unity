@@ -18,6 +18,6 @@ public class Blocks : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
+        if(collision.gameObject.tag=="ball")Destroy(this.gameObject);
     }
 }

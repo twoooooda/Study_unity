@@ -5,11 +5,11 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public int point;
+    public long point;
     public int timeLeft;
     private GameObject[] blocks;
     private int blocknum;
-    private int score;
+    private long score;
     private bool flag = true;
     public BallController BallController;
     public TextMeshProUGUI scoreText;
@@ -62,7 +62,7 @@ public class ScoreManager : MonoBehaviour
             //ブロックが全部なくなるとカウントダウン終了
             if (blocknum <= 0)
             {
-                scoreText.text = "Score:" + score.ToString() + "+" + ((timeLeft).ToString()) + "*50" + "=" + (score + (timeLeft + 1) * 50).ToString();
+                scoreText.text = "Score:" + score.ToString() + "+" + ((timeLeft).ToString()) + "*50" + "=" + (score + (timeLeft) * 50).ToString();
                 CountDownText.text = "Game clear";
                 timeText.text = "time:" + timeLeft.ToString();
                 BallController.BallActivate(false);
