@@ -18,13 +18,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 2.76
+    value: 0.8
   aperture:
     overrideState: 0
     value: 0.1
   focalLength:
     overrideState: 1
-    value: 50
+    value: 23
   kernelSize:
     overrideState: 0
     value: 1
@@ -49,9 +49,9 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.16
+    value: 0.43
   color:
-    overrideState: 0
+    overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
   ambientOnly:
     overrideState: 0
@@ -93,7 +93,8 @@ MonoBehaviour:
   - {fileID: 543203372307473803}
   - {fileID: -306501540126907718}
   - {fileID: -3091128966085475807}
-  - {fileID: 2825317126667463417}
+  - {fileID: 2261342541681309940}
+  - {fileID: 7468871328737943372}
 --- !u!114 &543203372307473803
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -115,7 +116,7 @@ MonoBehaviour:
     value: 1.23
   threshold:
     overrideState: 0
-    value: 1
+    value: 2.55
   softKnee:
     overrideState: 0
     value: 0.5
@@ -123,8 +124,8 @@ MonoBehaviour:
     overrideState: 0
     value: 65472
   diffusion:
-    overrideState: 0
-    value: 7
+    overrideState: 1
+    value: 7.88
   anamorphicRatio:
     overrideState: 0
     value: 0
@@ -135,13 +136,50 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   dirtTexture:
-    overrideState: 0
-    value: {fileID: 0}
+    overrideState: 1
+    value: {fileID: 2800000, guid: 3884f7a2d04ffe8409ad9200b275896f, type: 3}
     defaultState: 1
   dirtIntensity:
+    overrideState: 1
+    value: 6.77
+--- !u!114 &2261342541681309940
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
+  m_Name: AutoExposure
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  filtering:
+    overrideState: 1
+    value: {x: 41.47635, y: 86.47638}
+  minLuminance:
+    overrideState: 0
+    value: 9
+  maxLuminance:
+    overrideState: 0
+    value: 9
+  keyValue:
+    overrideState: 0
+    value: 1
+  eyeAdaptation:
     overrideState: 0
     value: 0
---- !u!114 &2825317126667463417
+  speedUp:
+    overrideState: 0
+    value: 2
+  speedDown:
+    overrideState: 0
+    value: 1
+--- !u!114 &7468871328737943372
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,14 +196,14 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   gradingMode:
-    overrideState: 0
+    overrideState: 1
     value: 1
   externalLut:
     overrideState: 0
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 0
+    overrideState: 1
     value: 0
   toneCurveToeStrength:
     overrideState: 0
